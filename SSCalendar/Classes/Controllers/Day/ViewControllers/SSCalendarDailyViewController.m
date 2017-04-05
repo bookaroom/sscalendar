@@ -41,6 +41,13 @@
     }
     return self;
 }
+    
+- (void)addEvents:(NSArray *)events
+{
+    self.dataController = [[SSDataController alloc] init];
+    [_dataController setEvents:events];
+    self.years = _dataController.calendarYears;
+}
 
 
 - (id)initWithDataController:(SSDataController *)dataController
@@ -59,7 +66,7 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = nil;
     
-    todayBarButtonItem.title = @"Today";
+//    todayBarButtonItem.title = @"Today";
     
     headerView.backgroundColor = [UIColor colorWithHexString:COLOR_BACKGROUND_OFF_WHITE];
     separatorView.backgroundColor = [UIColor colorWithHexString:COLOR_SEPARATOR];
@@ -133,6 +140,16 @@
 
 
 #pragma mark - UI Action Methods
+    
+- (IBAction)bookAction:(id)sender
+{
+    
+}
+    
+- (IBAction)logOut:(id)sender
+    {
+        
+    }
 
 - (IBAction)todayPressed:(id)sender
 {
@@ -182,6 +199,9 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
     
     [_weekView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+    if (self.dateChanged) {
+        self.dateChanged(_day.date);
+    }
 }
 
 
