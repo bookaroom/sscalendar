@@ -27,7 +27,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UICollectionView *dayView;
 @property (nonatomic, strong) SSCalendarDayViewController *dayViewController;
-
+@property (nonatomic, copy) void (^dateChanged)(NSDate *date);
+    
+- (void)addEvents:(NSArray *)events;
 - (id)initWithEvents:(NSArray *)events;
 - (id)initWithDataController:(SSDataController *)dataController;
 - (IBAction)todayPressed:(id)sender;
