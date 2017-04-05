@@ -94,6 +94,7 @@
         descriptionLabel.font = [SSCalendarEventTableViewCell descriptionFont];
         locationLabel.font = [SSCalendarEventTableViewCell locationFont];
         
+        timeLabel.textColor = [UIColor colorWithHexString:COLOR_SECONDARY];
         locationLabel.textColor = [UIColor colorWithHexString:COLOR_TEXT_LIGHT];
         
         nameLabel.numberOfLines = descriptionLabel.numberOfLines = 0;
